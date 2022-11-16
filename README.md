@@ -1,3 +1,5 @@
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fstepzen-dev%2Fstepzen-vercel-starter-template&project-name=stepzen-starter&repository-name=stepzen-starter&redirect-url=https%3A%2F%2Fdashboard.stepzen.com&developer-id=oac_XwUSFBDk0drJGFgyQiap3wZv&demo-title=StepZen%20Vercel%20Starter&demo-description=Starter%20kit%20to%20build%20fullstack%20Next.js%20projects%20with%20StepZen%20and%20Vercel&demo-image=%2F%2Fvercel.com%2F_next%2Fimage%3Furl%3Dhttps%253A%252F%252Fvercel.com%252Fapi%252Fv1%252Fintegrations%252Fassets%252Foac_XwUSFBDk0drJGFgyQiap3wZv%252Fimages%252F9bf8c36f2eeccbd7b65131219c3fb32b98a848fc.png%26w%3D3840%26q%3D75&demo-url=https%3A%2F%2Fgithub.com%2Fstepzen-dev%2Fstepzen-vercel-starter-template&integration-ids=oac_XwUSFBDk0drJGFgyQiap3wZv&external-id=stepzen-dev%2Fstepzen-vercel-starter-template)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
