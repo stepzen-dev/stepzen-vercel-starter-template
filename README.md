@@ -13,30 +13,36 @@ This is a demo [StepZen](https://stepzen.com) + [Next.js](https://nextjs.org/) p
    stepzen login
    ```
 
-   and create a `.env.local` file to pass your StepZen credentials to the NextJS app:
+2. Then, create a `.env.local` file to pass your StepZen credentials to the NextJS app:
 
    ```bash
    echo "STEPZEN_ACCOUNT=$(stepzen whoami --account)" >> .env.local
    echo "STEPZEN_API_KEY=$(stepzen whoami --apikey)" >> .env.local
    ```
 
-2. Then, run the development server:
+3. Finally, install dependencies and start the development server:
 
    ```bash
    npm i
    npm run dev
    ```
 
-3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> Running `npm run dev` also executes `stepzen start`, which is the command to deploy your GraphQL API to the StepZen cloud.
+> You can as well run the `stepzen start` command at any point, in a serapate terminal window.
+>
+> Read more about what happens when you run `npm run dev`, in the ["Getting started" explained](#getting-started-explained) section below.
 
 ---
 
-The GraphiQL editor gives you an interactive UI to explore the GraphQL API available for your app.
-You can edit the API my modifying `stepzen/index.graphql` by hand, or use the [`stepzen import`](https://stepzen.com/docs/cli/cli-commands#stepzen-import) CLI command to import additional data sources to your API.
+<img width="1306" alt="demo" src="https://user-images.githubusercontent.com/22416150/203358874-7ccbe260-0f70-4433-9340-974dd6e17616.png">
 
-The page auto-updates as you edit the file.
+Open [`http://localhost:3000`](http://localhost:3000) with your browser to see the app, and [`dashboard.stepzen.com`](https://dashboard.stepzen.com/) to see your GraphQL API endpoint.
 
-Feel free to delete the GraphiQL component from the front page and switch to your [StepZen dashboard](https://dashboard.stepzen.com/) instead, once you get familiar with the application structure.
+You can edit the GraphQL API my modifying `stepzen/index.graphql` by hand, or use the [`stepzen import`](https://stepzen.com/docs/cli/cli-commands#stepzen-import) CLI command to import additional data sources to your API.
+
+The page auto-updates as you edit JS or CSS files, and the GraphQL API on `stepzen.net` auto-updates as you edit GraphQL schema files in `stepzen/`.
+
+The GraphiQL component on the home page is only an example to show that your app has a GraphQL API. Feel free to delete this component at any time. You can always use your [StepZen dashboard](https://dashboard.stepzen.com/) to explore your GraphQL endpoints.
 
 ## Learn More
 
@@ -52,6 +58,28 @@ You can check out [the StepZen `examples` GitHub repository](https://github.com/
 If you created this app by clonning the starter repo with the "Deploy to Vercel" button, your Vercel project already has the `STEPZEN_ACCOUNT` and `STEPZEN_API_KEY` environment variables correctly defined. The StepZen Vercel integtaion does that for you, and you do not need to make any extra actions.
 
 If you deploy this repo to another hosting, please make sure to define the `STEPZEN_ACCOUNT` and `STEPZEN_API_KEY` environment variables in your deployment / hosting admin panel.
+
+## "Getting started" explained
+
+This section explains step-by-step what happens under the hood when running the steps from the [Getting started](#getting-started) section above.
+
+- `npm i -g stepzen`
+
+  Install the [`stepzen`](https://www.npmjs.com/package/stepzen) npm package into your system (globally). It comes with the `stepzen` command line tool, which is what you can later use to run commands like `stepzen login`.
+
+- `stepzen login`
+
+  Log in with your StepZen account name and an admin key so that StepZen CLI could act on your behalf. You can always check your login status with `stepzen whoami` and log out with `stepzen logout`.
+
+- `npm run dev`
+
+  Start both NextJS and StepZen development servers for your project using the `concurrently` npm package. Both servers run in parallel and print logs into the same terminal window. Each line starts with either `[StepZen]` or `[NextJS]`, telling you which source it comes from. Terminating the task with `Ctrl+C` / `Cmd+C` stops both dev servers.
+
+  The StepZen development server watches for GraphQL schema changes inside the `./stepzen` folder, and automatically redeploys the schema to the StepZen cloud on every change. You can start this server separately with the `stepzen start --dir ./stepzen` command.
+
+  The NextJS development server watches for NextJS source file change, and automatically updates the web page in the browser on every change. You can start this server separately with the `npx next dev` command.
+
+  See the exact logic in `package.json`.
 
 ## Code-completion in GraphQL code
 
