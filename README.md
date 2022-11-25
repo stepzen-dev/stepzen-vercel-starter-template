@@ -38,11 +38,11 @@ This is a demo [StepZen](https://stepzen.com) + [Next.js](https://nextjs.org/) p
 
 Open [`http://localhost:3000`](http://localhost:3000) with your browser to see the app, and [`dashboard.stepzen.com`](https://dashboard.stepzen.com/) to see your GraphQL API endpoint.
 
-You can edit the GraphQL API my modifying `stepzen/index.graphql` by hand, or use the [`stepzen import`](https://stepzen.com/docs/cli/cli-commands#stepzen-import) CLI command to import additional data sources to your API.
+You can edit the GraphQL API by modifying `stepzen/index.graphql` by hand, or use the [`stepzen import`](https://stepzen.com/docs/cli/cli-commands#stepzen-import) CLI command to import additional data sources to your API.
 
 The page auto-updates as you edit JS or CSS files, and the GraphQL API on `stepzen.net` auto-updates as you edit GraphQL schema files in `stepzen/`.
 
-The GraphiQL component on the home page is only an example to show that your app has a GraphQL API. Feel free to delete this component at any time. You can always use your [StepZen dashboard](https://dashboard.stepzen.com/) to explore your GraphQL endpoints.
+The GraphiQL component on the home page is only an example to show that your app has a GraphQL API. Feel free to delete this component at any time. You can always use the [StepZen dashboard](https://dashboard.stepzen.com/explorer) to explore your GraphQL endpoints.
 
 ## Learn More
 
@@ -55,7 +55,7 @@ You can check out [the StepZen `examples` GitHub repository](https://github.com/
 
 ## Deploy to Vercel
 
-If you created this app by clonning the starter repo with the "Deploy to Vercel" button, your Vercel project already has the `STEPZEN_ACCOUNT` and `STEPZEN_API_KEY` environment variables correctly defined. The StepZen Vercel integtaion does that for you, and you do not need to make any extra actions.
+If you created this app by clonning the starter repo with the "Deploy to Vercel" button, your Vercel project already has the `STEPZEN_ACCOUNT` and `STEPZEN_API_KEY` [environment variables](https://vercel.com/docs/concepts/projects/environment-variables) defined. The StepZen Vercel integtaion does that for you, and you do not need to make any extra actions.
 
 If you deploy this repo to another hosting, please make sure to define the `STEPZEN_ACCOUNT` and `STEPZEN_API_KEY` environment variables in your deployment / hosting admin panel.
 
